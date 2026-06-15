@@ -1,6 +1,6 @@
-import type { BlockComponent, ImageGalleryContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, ImageGalleryContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import Tile from "./Tile";
 
 // horizontal scroll-snap row — fixed-width tiles, snap to start, edge fade via padding

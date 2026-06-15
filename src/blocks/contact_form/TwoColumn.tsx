@@ -1,7 +1,7 @@
-import type { BlockComponent, ContactFormContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Button } from "@/ui/button";
+import type { BlockComponent, ContactFormContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Button } from "../../ui/button";
 import { Field, controlFor } from "./Field";
 
 const TwoColumn: BlockComponent<ContactFormContent> = ({ intro, fields }) => (

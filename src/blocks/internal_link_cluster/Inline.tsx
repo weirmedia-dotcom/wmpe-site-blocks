@@ -1,6 +1,6 @@
-import type { BlockComponent, InternalLinkClusterContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, InternalLinkClusterContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 
 const Inline: BlockComponent<InternalLinkClusterContent> = ({ links }) => (
   <Section className="bg-background py-12 md:py-16">

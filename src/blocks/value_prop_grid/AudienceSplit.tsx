@@ -1,6 +1,6 @@
-import type { BlockComponent, ValuePropGridContent, ValuePropItem } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, ValuePropGridContent, ValuePropItem } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import { Icon } from "./Icon";
 
 function Panel({

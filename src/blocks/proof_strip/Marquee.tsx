@@ -1,6 +1,6 @@
-import type { BlockComponent, ProofStripContent, ProofItem } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, ProofStripContent, ProofItem } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 
 const Chip = ({ item }: { item: ProofItem }) => (
   <figure className="flex w-[20rem] shrink-0 flex-col gap-3 rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm">

@@ -1,6 +1,6 @@
-import type { BlockComponent, DefinitionAnswerContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, DefinitionAnswerContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 
 const Highlight: BlockComponent<DefinitionAnswerContent> = ({ question, answer }) => (
   <Section>

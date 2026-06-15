@@ -1,6 +1,6 @@
-import type { BlockComponent, ImageGalleryContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, ImageGalleryContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import Tile from "./Tile";
 
 // CSS multi-column masonry — tiles flow at natural heights, never split across columns.

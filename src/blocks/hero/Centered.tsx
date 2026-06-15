@@ -1,7 +1,7 @@
-import type { BlockComponent, HeroContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Button } from "@/ui/button";
+import type { BlockComponent, HeroContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Button } from "../../ui/button";
 const Centered: BlockComponent<HeroContent> = ({ headline, subhead, cta_label, cta_href }) => (
   <Section className="bg-background">
     <Container className="max-w-3xl text-center">

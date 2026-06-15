@@ -1,6 +1,6 @@
-import type { BlockComponent, TeamBioContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, TeamBioContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import { Avatar } from "./Avatar";
 
 const Default: BlockComponent<TeamBioContent> = ({ name, role, bio }) => (

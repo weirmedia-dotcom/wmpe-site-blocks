@@ -1,7 +1,7 @@
-import type { BlockComponent, RiskReversalContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Markdown } from "@/lib/Markdown";
+import type { BlockComponent, RiskReversalContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Markdown } from "../../lib/Markdown";
 
 /**
  * Inline variant — a lightweight bordered callout for dropping a single

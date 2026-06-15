@@ -1,6 +1,6 @@
-import type { BlockComponent, ImageGalleryContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, ImageGalleryContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import Tile from "./Tile";
 
 // responsive grid (1 → 2 → 3 cols), uniform 4:3 aspect tiles, rounded + framed

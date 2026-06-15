@@ -1,4 +1,4 @@
-import type { VariantMap } from "@/types";
+import type { VariantMap } from "../../types";
 import Default from "./Default";
 import AudienceSplit from "./AudienceSplit";
 import Bordered from "./Bordered";

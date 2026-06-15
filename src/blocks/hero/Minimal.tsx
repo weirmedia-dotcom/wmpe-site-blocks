@@ -1,7 +1,7 @@
-import type { BlockComponent, HeroContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Button } from "@/ui/button";
+import type { BlockComponent, HeroContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Button } from "../../ui/button";
 const Minimal: BlockComponent<HeroContent> = ({ headline, subhead, cta_label, cta_href }) => (
   <Section className="bg-background py-12 md:py-16">
     <Container className="max-w-2xl">

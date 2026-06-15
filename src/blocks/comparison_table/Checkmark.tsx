@@ -1,6 +1,6 @@
-import type { BlockComponent, ComparisonTableContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, ComparisonTableContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import {
   Table,
   TableHeader,
@@ -8,8 +8,8 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from "@/ui/table";
-import { cn } from "@/lib/cn";
+} from "../../ui/table";
+import { cn } from "../../lib/cn";
 import { Check, X, Minus } from "lucide-react";
 
 const YES = new Set(["yes", "true", "✓"]);

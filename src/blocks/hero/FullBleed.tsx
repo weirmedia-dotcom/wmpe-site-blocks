@@ -1,7 +1,7 @@
-import type { BlockComponent, HeroContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Button } from "@/ui/button";
+import type { BlockComponent, HeroContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Button } from "../../ui/button";
 const FullBleed: BlockComponent<HeroContent> = ({ headline, subhead, cta_label, cta_href }) => (
   <Section className="bg-primary text-primary-foreground py-24 md:py-32">
     <Container className="max-w-3xl text-center">

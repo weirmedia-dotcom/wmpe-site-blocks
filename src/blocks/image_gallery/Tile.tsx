@@ -1,6 +1,6 @@
 import { ImageIcon } from "lucide-react";
-import type { GalleryImage } from "@/types";
-import { cn } from "@/lib/cn";
+import type { GalleryImage } from "../../types";
+import { cn } from "../../lib/cn";
 
 // Shared image-or-placeholder renderer used by every image_gallery variant.
 // - With src: a lazy-loaded, cover-fit <img> that gently zooms on hover.

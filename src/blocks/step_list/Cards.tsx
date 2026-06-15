@@ -1,7 +1,7 @@
-import type { BlockComponent, StepListContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Card } from "@/ui/card";
+import type { BlockComponent, StepListContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Card } from "../../ui/card";
 
 const Cards: BlockComponent<StepListContent> = ({ steps }) => (
   <Section className="bg-muted/40">

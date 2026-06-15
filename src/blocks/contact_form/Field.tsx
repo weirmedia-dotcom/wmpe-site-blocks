@@ -1,6 +1,6 @@
-import { cn } from "@/lib/cn";
-import { Input } from "@/ui/input";
-import { Label } from "@/ui/label";
+import { cn } from "../../lib/cn";
+import { Input } from "../../ui/input";
+import { Label } from "../../ui/label";
 
 /** slugify a field label into a safe id/name token */
 export function slugify(field: string): string {

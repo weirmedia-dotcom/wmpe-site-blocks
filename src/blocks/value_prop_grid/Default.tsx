@@ -1,8 +1,8 @@
-import type { BlockComponent, ValuePropGridContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Card } from "@/ui/card";
-import { cn } from "@/lib/cn";
+import type { BlockComponent, ValuePropGridContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Card } from "../../ui/card";
+import { cn } from "../../lib/cn";
 import { Icon, colsClass } from "./Icon";
 
 const Default: BlockComponent<ValuePropGridContent> = ({ items, props }) => (

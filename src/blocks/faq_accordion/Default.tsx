@@ -1,12 +1,12 @@
-import type { BlockComponent, FaqAccordionContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, FaqAccordionContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "@/ui/accordion";
+} from "../../ui/accordion";
 
 const Default: BlockComponent<FaqAccordionContent> = ({ items }) => (
   <Section className="bg-background">

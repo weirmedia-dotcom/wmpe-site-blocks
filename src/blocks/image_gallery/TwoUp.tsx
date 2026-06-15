@@ -1,6 +1,6 @@
-import type { BlockComponent, ImageGalleryContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, ImageGalleryContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import Tile from "./Tile";
 
 // large editorial pairs — single column on mobile, two big 3:2 tiles on md+

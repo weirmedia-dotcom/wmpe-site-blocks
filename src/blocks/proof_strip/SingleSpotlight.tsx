@@ -1,6 +1,6 @@
-import type { BlockComponent, ProofStripContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, ProofStripContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 
 const SingleSpotlight: BlockComponent<ProofStripContent> = ({ items }) => {
   const item = items[0];

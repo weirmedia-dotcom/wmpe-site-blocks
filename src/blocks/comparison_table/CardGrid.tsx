@@ -1,7 +1,7 @@
-import type { BlockComponent, ComparisonTableContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Card } from "@/ui/card";
+import type { BlockComponent, ComparisonTableContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Card } from "../../ui/card";
 
 // each data row → a Card. Column headers become inline labels per attribute.
 // Mobile-first: cards stack on small screens, grid up on wider ones.

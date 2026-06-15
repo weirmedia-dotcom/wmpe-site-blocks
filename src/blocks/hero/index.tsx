@@ -1,4 +1,4 @@
-import type { VariantMap } from "@/types";
+import type { VariantMap } from "../../types";
 import Default from "./Default";
 import Centered from "./Centered";
 import FullBleed from "./FullBleed";

@@ -1,7 +1,7 @@
-import type { BlockComponent, DefinitionAnswerContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Card as UICard } from "@/ui/card";
+import type { BlockComponent, DefinitionAnswerContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Card as UICard } from "../../ui/card";
 import { HelpCircle } from "lucide-react";
 
 const Card: BlockComponent<DefinitionAnswerContent> = ({ question, answer }) => (

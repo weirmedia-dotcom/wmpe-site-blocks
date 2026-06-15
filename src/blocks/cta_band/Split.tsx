@@ -1,7 +1,7 @@
-import type { BlockComponent, CtaBandContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Button } from "@/ui/button";
+import type { BlockComponent, CtaBandContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Button } from "../../ui/button";
 
 const Split: BlockComponent<CtaBandContent> = ({ headline, cta_label, cta_href }) => (
   <Section className="bg-secondary text-foreground">

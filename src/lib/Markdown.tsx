@@ -1,5 +1,5 @@
 import ReactMarkdown, { type Components } from "react-markdown";
-import { cn } from "@/lib/cn";
+import { cn } from "./cn";
 
 /**
  * Shared markdown renderer for prose-style blocks.

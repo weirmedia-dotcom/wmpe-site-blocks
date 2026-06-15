@@ -1,7 +1,7 @@
-import type { BlockComponent, IntroProseContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Markdown } from "@/lib/Markdown";
+import type { BlockComponent, IntroProseContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Markdown } from "../../lib/Markdown";
 
 /**
  * Lead variant — the opening paragraph is rendered larger and in the

@@ -1,5 +1,5 @@
-import type { Block, Registry } from "@/types";
-import { BLOCK_REGISTRY } from "@/registry";
+import type { Block, Registry } from "./types";
+import { BLOCK_REGISTRY } from "./registry";
 export function BlockRenderer({ block, overrides, registry = BLOCK_REGISTRY }:
   { block: Block; overrides?: Registry; registry?: Registry }) {
   const variant = block.props?.variant ?? "default";

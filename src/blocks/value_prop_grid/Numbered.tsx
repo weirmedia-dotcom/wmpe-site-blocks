@@ -1,7 +1,7 @@
-import type { BlockComponent, ValuePropGridContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { cn } from "@/lib/cn";
+import type { BlockComponent, ValuePropGridContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { cn } from "../../lib/cn";
 import { colsClass } from "./Icon";
 
 const Numbered: BlockComponent<ValuePropGridContent> = ({ items, props }) => (

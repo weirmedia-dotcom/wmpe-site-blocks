@@ -1,7 +1,7 @@
-import type { BlockComponent, HeroContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Button } from "@/ui/button";
+import type { BlockComponent, HeroContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Button } from "../../ui/button";
 const Default: BlockComponent<HeroContent> = ({ headline, subhead, cta_label, cta_href }) => (
   <Section className="bg-background">
     <Container className="grid items-center gap-10 md:grid-cols-2">

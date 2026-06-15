@@ -1,4 +1,4 @@
-import { cn } from "@/lib/cn";
+import { cn } from "../../lib/cn";
 
 /** Compute initials from a name: first letters of up to 2 words, uppercased. */
 export function initialsFromName(name: string): string {

@@ -1,7 +1,7 @@
-import type { BlockComponent, ProofStripContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Card } from "@/ui/card";
+import type { BlockComponent, ProofStripContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Card } from "../../ui/card";
 import { Quote } from "lucide-react";
 
 const Default: BlockComponent<ProofStripContent> = ({ items }) => (

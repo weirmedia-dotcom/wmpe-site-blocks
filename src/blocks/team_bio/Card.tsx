@@ -1,7 +1,7 @@
-import type { BlockComponent, TeamBioContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Card as UICard } from "@/ui/card";
+import type { BlockComponent, TeamBioContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Card as UICard } from "../../ui/card";
 import { Avatar } from "./Avatar";
 
 const Card: BlockComponent<TeamBioContent> = ({ name, role, bio }) => (

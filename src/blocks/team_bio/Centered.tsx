@@ -1,6 +1,6 @@
-import type { BlockComponent, TeamBioContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, TeamBioContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import { Avatar } from "./Avatar";
 
 const Centered: BlockComponent<TeamBioContent> = ({ name, role, bio }) => (

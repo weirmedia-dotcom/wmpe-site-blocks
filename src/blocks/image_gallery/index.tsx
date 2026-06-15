@@ -1,4 +1,4 @@
-import type { VariantMap } from "@/types";
+import type { VariantMap } from "../../types";
 import Default from "./Default";
 import Masonry from "./Masonry";
 import Carousel from "./Carousel";

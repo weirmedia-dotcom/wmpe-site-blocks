@@ -1,4 +1,4 @@
-import type { VariantMap } from "@/types";
+import type { VariantMap } from "../../types";
 import Default from "./Default";
 import Inline from "./Inline";
 import BadgeRow from "./BadgeRow";

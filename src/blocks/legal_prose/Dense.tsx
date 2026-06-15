@@ -1,7 +1,7 @@
-import type { BlockComponent, LegalProseContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
-import { Markdown } from "@/lib/Markdown";
+import type { BlockComponent, LegalProseContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
+import { Markdown } from "../../lib/Markdown";
 
 /**
  * Dense variant — smaller type and tighter vertical rhythm across a

@@ -1,6 +1,6 @@
-import type { BlockComponent, InternalLinkClusterContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, InternalLinkClusterContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 import { ArrowRight } from "lucide-react";
 
 const Cards: BlockComponent<InternalLinkClusterContent> = ({ links }) => (

@@ -1,6 +1,6 @@
-import type { BlockComponent, StepListContent } from "@/types";
-import { Section } from "@/primitives/Section";
-import { Container } from "@/primitives/Container";
+import type { BlockComponent, StepListContent } from "../../types";
+import { Section } from "../../primitives/Section";
+import { Container } from "../../primitives/Container";
 
 const Horizontal: BlockComponent<StepListContent> = ({ steps }) => (
   <Section className="bg-background">
