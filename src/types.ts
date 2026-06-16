@@ -6,7 +6,8 @@ export type BlockType =
   | "cta_band" | "risk_reversal" | "internal_link_cluster"
   | "contact_form" | "team_bio" | "legal_prose" | "image_gallery"
   | "image_content_split" | "before_after" | "stat_banner"
-  | "product_card_grid" | "colour_palette";
+  | "product_card_grid" | "colour_palette"
+  | "media_list_row" | "category_tiles" | "visit_us" | "promo_banner";
 
 export interface BlockProps { variant?: string; columns?: number; [k: string]: unknown; }
 
@@ -47,6 +48,35 @@ export interface ProductCardItem { name: string; image?: string; tagline: string
 export interface ProductCardGridContent { items: ProductCardItem[]; }
 export interface SwatchItem { name: string; hex?: string; family?: string; }
 export interface ColourPaletteContent { swatches: SwatchItem[]; heading?: string; body?: string; }
+
+export interface MediaListRowItem {
+  image?: { src?: string; alt?: string };
+  name: string;
+  tagline?: string;
+  meta?: string[];
+  price?: string;
+  cta_label?: string;
+  cta_href?: string;
+}
+export interface MediaListRowContent { heading?: string; eyebrow?: string; items: MediaListRowItem[]; }
+
+export interface CategoryTile { title: string; blurb?: string; image?: { src?: string; alt?: string }; href?: string; }
+export interface CategoryTilesContent { heading?: string; eyebrow?: string; items: CategoryTile[]; }
+
+export interface VisitUsHours { days: string; time: string; }
+export interface VisitUsContent {
+  heading?: string;
+  eyebrow?: string;
+  address?: string[];
+  phone?: string;
+  email?: string;
+  hours?: VisitUsHours[];
+  cta_label?: string;
+  cta_href?: string;
+  map_image?: { src?: string; alt?: string };
+}
+
+export interface PromoBannerContent { text: string; icon?: string; cta_label?: string; cta_href?: string; }
 
 export interface PageMeta { title: string; description: string; }
 export interface Page {
