@@ -4,7 +4,9 @@ export type BlockType =
   | "hero" | "intro_prose" | "definition_answer" | "value_prop_grid"
   | "step_list" | "comparison_table" | "faq_accordion" | "proof_strip"
   | "cta_band" | "risk_reversal" | "internal_link_cluster"
-  | "contact_form" | "team_bio" | "legal_prose" | "image_gallery";
+  | "contact_form" | "team_bio" | "legal_prose" | "image_gallery"
+  | "image_content_split" | "before_after" | "stat_banner"
+  | "product_card_grid" | "colour_palette";
 
 export interface BlockProps { variant?: string; columns?: number; [k: string]: unknown; }
 
@@ -35,6 +37,16 @@ export interface TeamBioContent { name: string; role?: string; bio: string; }
 export interface LegalProseContent { markdown: string; }
 export interface GalleryImage { src?: string; alt: string; }
 export interface ImageGalleryContent { images: GalleryImage[]; }
+
+export interface SplitImage { src?: string; alt: string; }
+export interface ImageContentSplitContent { image: SplitImage; heading: string; body: string; cta_label?: string; cta_href?: string; }
+export interface BeforeAfterContent { before: SplitImage; after: SplitImage; caption?: string; }
+export interface StatItem { number: string; label: string; }
+export interface StatBannerContent { items: StatItem[]; heading?: string; }
+export interface ProductCardItem { name: string; image?: string; tagline: string; features: string[]; cta_label: string; cta_href?: string; }
+export interface ProductCardGridContent { items: ProductCardItem[]; }
+export interface SwatchItem { name: string; hex?: string; family?: string; }
+export interface ColourPaletteContent { swatches: SwatchItem[]; heading?: string; body?: string; }
 
 export interface PageMeta { title: string; description: string; }
 export interface Page {

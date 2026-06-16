@@ -5,9 +5,10 @@ const ALL: BlockType[] = [
   "hero", "intro_prose", "definition_answer", "value_prop_grid", "step_list",
   "comparison_table", "faq_accordion", "proof_strip", "cta_band", "risk_reversal",
   "internal_link_cluster", "contact_form", "team_bio", "legal_prose", "image_gallery",
+  "image_content_split", "before_after", "stat_banner", "product_card_grid", "colour_palette",
 ];
 
-test("registry has all 15 block types, each with a default variant", () => {
+test("registry has all 20 block types, each with a default variant", () => {
   for (const t of ALL) {
     expect(BLOCK_REGISTRY[t], `missing block: ${t}`).toBeTruthy();
     expect(BLOCK_REGISTRY[t]!.default, `missing default variant: ${t}`).toBeTruthy();

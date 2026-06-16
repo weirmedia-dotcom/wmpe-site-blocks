@@ -14,8 +14,13 @@ import contact_form from "./blocks/contact_form";
 import team_bio from "./blocks/team_bio";
 import legal_prose from "./blocks/legal_prose";
 import image_gallery from "./blocks/image_gallery";
+import image_content_split from "./blocks/image_content_split";
+import before_after from "./blocks/before_after";
+import stat_banner from "./blocks/stat_banner";
+import product_card_grid from "./blocks/product_card_grid";
+import colour_palette from "./blocks/colour_palette";
 
-// Every WCE block type → its variant map. All 15 registered here.
+// Every WCE block type → its variant map. All 20 registered here.
 export const BLOCK_REGISTRY: Registry = {
   hero,
   intro_prose,
@@ -32,4 +37,9 @@ export const BLOCK_REGISTRY: Registry = {
   team_bio,
   legal_prose,
   image_gallery,
+  image_content_split,
+  before_after,
+  stat_banner,
+  product_card_grid,
+  colour_palette,
 };
