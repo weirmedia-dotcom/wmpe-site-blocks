@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import stat_banner from "./index";
 
 const content = {
@@ -11,18 +11,17 @@ const content = {
   ],
 };
 
-test.each(Object.keys(stat_banner))("variant %s renders all stats", (v) => {
-  const C = (stat_banner as any)[v];
-  const { unmount } = render(<C {...content} props={{ variant: v }} />);
+test("default renders heading + every stat number and label", () => {
+  render(<stat_banner.default {...(content as any)} />);
+  expect(screen.getByText(content.heading)).toBeInTheDocument();
   for (const item of content.items) {
-    expect(document.body.textContent).toContain(item.number);
-    expect(document.body.textContent).toContain(item.label);
+    expect(screen.getByText(item.number)).toBeInTheDocument();
+    expect(screen.getByText(item.label)).toBeInTheDocument();
   }
-  unmount();
 });
 
-test("stat_banner has default, dark, accent variants", () => {
-  expect(stat_banner.default).toBeTruthy();
-  expect(stat_banner.dark).toBeTruthy();
-  expect(stat_banner.accent).toBeTruthy();
+test("default uses list semantics", () => {
+  render(<stat_banner.default {...(content as any)} />);
+  expect(screen.getByRole("list")).toBeInTheDocument();
+  expect(screen.getAllByRole("listitem")).toHaveLength(content.items.length);
 });

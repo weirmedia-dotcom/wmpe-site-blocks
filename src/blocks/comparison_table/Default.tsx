@@ -1,67 +1,47 @@
 import type { BlockComponent, ComparisonTableContent } from "../../types";
 import { Section } from "../../primitives/Section";
 import { Container } from "../../primitives/Container";
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "../../ui/table";
-import { cn } from "../../lib/cn";
 
-// striped table — alternating row bg, header on bg-muted, framed + rounded for lift
-const Default: BlockComponent<ComparisonTableContent> = ({ columns, rows }) => (
-  <Section className="bg-background">
+const Default: BlockComponent<ComparisonTableContent> = ({
+  columns,
+  rows,
+  eyebrow,
+  heading,
+  intro,
+}) => (
+  <Section>
     <Container>
-      <div className="overflow-hidden rounded-2xl border border-border shadow-sm">
-        <div className="overflow-x-auto">
-          <Table className="text-sm">
-            <TableHeader>
-              <TableRow className="border-b border-border hover:bg-transparent">
-                {columns.map((col, i) => (
-                  <TableHead
-                    key={i}
-                    scope="col"
-                    className={cn(
-                      "h-auto whitespace-nowrap bg-muted px-5 py-4 font-heading text-sm font-semibold tracking-tight text-foreground",
-                      i === 0 ? "text-left" : "text-center",
-                    )}
-                  >
-                    {col}
-                  </TableHead>
-                ))}
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {rows.map((row, r) => (
-                <TableRow
-                  key={r}
-                  className={cn(
-                    "border-b border-border/60 transition-colors",
-                    r % 2 === 1 && "bg-muted/50",
-                  )}
-                >
-                  {row.map((cell, c) => (
-                    <TableCell
-                      key={c}
-                      className={cn(
-                        "px-5 py-4 align-middle",
-                        c === 0
-                          ? "font-medium text-foreground"
-                          : "text-center text-muted-foreground",
-                      )}
-                    >
-                      {cell}
-                    </TableCell>
-                  ))}
-                </TableRow>
+      {eyebrow && (
+        <p className="text-sm text-muted-foreground">{eyebrow}</p>
+      )}
+      {heading && (
+        <h2 className="text-3xl text-foreground">{heading}</h2>
+      )}
+      {intro && (
+        <p className="mt-2 text-base text-muted-foreground">{intro}</p>
+      )}
+      <table className="w-full text-base text-foreground">
+        <thead>
+          <tr>
+            {(columns ?? []).map((col, i) => (
+              <th key={i} scope="col" className="text-left text-foreground">
+                {col}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {(rows ?? []).map((row, r) => (
+            <tr key={r}>
+              {row.map((cell, c) => (
+                <td key={c} className="text-muted-foreground">
+                  {cell}
+                </td>
               ))}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </Container>
   </Section>
 );

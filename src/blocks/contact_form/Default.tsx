@@ -1,34 +1,45 @@
 import type { BlockComponent, ContactFormContent } from "../../types";
 import { Section } from "../../primitives/Section";
 import { Container } from "../../primitives/Container";
-import { Button } from "../../ui/button";
-import { Field } from "./Field";
+
+/** slugify a field label into a safe id/name token */
+function slugify(field: string): string {
+  return field
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** derive whether a field should render as a multi-line textarea */
+function isMultiline(field: string): boolean {
+  const f = field.toLowerCase();
+  return f.includes("message") || f.includes("notes") || f.includes("comment");
+}
 
 const Default: BlockComponent<ContactFormContent> = ({ intro, fields }) => (
-  <Section className="bg-background">
-    <Container className="max-w-xl">
-      {intro ? (
-        <div className="mb-10 text-center">
-          <span className="mb-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            <span aria-hidden className="h-px w-8 bg-border" />
-            Contact
-          </span>
-          <h2 className="font-heading text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            {intro}
-          </h2>
-        </div>
-      ) : null}
-
-      <form noValidate className="flex flex-col gap-6">
-        {fields.map((field) => (
-          <Field key={field} field={field} />
-        ))}
-        <Button type="submit" size="lg" className="mt-2 w-full">
+  <Section>
+    <Container>
+      {intro ? <p className="text-base text-muted-foreground">{intro}</p> : null}
+      <form className="flex flex-col gap-4">
+        {fields.map((field) => {
+          const id = slugify(field);
+          return (
+            <div key={field} className="flex flex-col gap-1">
+              <label htmlFor={id} className="text-sm text-foreground">
+                {field}
+              </label>
+              {isMultiline(field) ? (
+                <textarea id={id} name={id} className="text-base text-foreground" />
+              ) : (
+                <input id={id} name={id} type="text" className="text-base text-foreground" />
+              )}
+            </div>
+          );
+        })}
+        <button type="submit" className="text-base text-foreground">
           Send message
-        </Button>
-        <p className="text-center text-xs text-muted-foreground">
-          Fields marked <span aria-hidden>*</span> are required.
-        </p>
+        </button>
       </form>
     </Container>
   </Section>

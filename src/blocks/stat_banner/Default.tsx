@@ -3,18 +3,14 @@ import { Section } from "../../primitives/Section";
 import { Container } from "../../primitives/Container";
 
 const Default: BlockComponent<StatBannerContent> = ({ items, heading }) => (
-  <Section className="border-y border-border bg-muted/40">
+  <Section>
     <Container>
-      {heading && (
-        <h2 className="mb-10 text-center font-heading text-2xl font-semibold tracking-tight text-foreground">
-          {heading}
-        </h2>
-      )}
+      {heading && <h2 className="mb-8 text-2xl text-foreground">{heading}</h2>}
       <ul className="grid grid-cols-2 gap-8 md:grid-cols-4">
         {items.map((item, i) => (
-          <li key={i} className="flex flex-col items-center text-center">
-            <span className="font-heading text-4xl font-bold text-primary">{item.number}</span>
-            <span className="mt-2 text-sm text-muted-foreground">{item.label}</span>
+          <li key={i} className="flex flex-col gap-2">
+            <span className="text-3xl text-foreground">{item.number}</span>
+            <span className="text-sm text-muted-foreground">{item.label}</span>
           </li>
         ))}
       </ul>

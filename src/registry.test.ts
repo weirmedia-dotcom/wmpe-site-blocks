@@ -18,7 +18,12 @@ test("registry has all 27 block types, each with a default variant", () => {
   expect(Object.keys(BLOCK_REGISTRY).sort()).toEqual([...ALL].sort());
 });
 
-test("WCE-emitted named variants exist", () => {
-  expect((BLOCK_REGISTRY.hero as any).centered).toBeTruthy();
-  expect((BLOCK_REGISTRY.value_prop_grid as any)["audience-split"]).toBeTruthy();
+// Core is structure-only: each block exposes a single `default` skeleton. WCE
+// `props.variant` strings resolve against the CLIENT override (override[variant]
+// ?? override.default); in core they fall back to `default` (see BlockRenderer).
+// So the package no longer ships named variants.
+test("every block exposes only a default in core", () => {
+  for (const t of ALL) {
+    expect(Object.keys(BLOCK_REGISTRY[t]!)).toEqual(["default"]);
+  }
 });

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import colour_palette from "./index";
 
 const content = {
@@ -12,16 +12,17 @@ const content = {
   ],
 };
 
-test.each(Object.keys(colour_palette))("variant %s renders all swatch names", (v) => {
-  const C = (colour_palette as any)[v];
-  const { unmount } = render(<C {...content} props={{ variant: v }} />);
+test("default renders heading, body and every swatch name", () => {
+  render(<colour_palette.default {...(content as any)} />);
+  expect(screen.getByText(content.heading)).toBeInTheDocument();
+  expect(screen.getByText(content.body)).toBeInTheDocument();
   for (const s of content.swatches) {
-    expect(document.body.textContent).toContain(s.name);
+    expect(screen.getByText(s.name)).toBeInTheDocument();
   }
-  unmount();
 });
 
-test("colour_palette.default and strip exist", () => {
-  expect(colour_palette.default).toBeTruthy();
-  expect(colour_palette.strip).toBeTruthy();
+test("default uses list semantics for swatches", () => {
+  render(<colour_palette.default {...(content as any)} />);
+  expect(screen.getByRole("list")).toBeInTheDocument();
+  expect(screen.getAllByRole("listitem")).toHaveLength(content.swatches.length);
 });

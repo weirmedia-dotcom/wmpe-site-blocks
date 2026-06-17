@@ -1,42 +1,32 @@
 import type { BlockComponent, ProofStripContent } from "../../types";
 import { Section } from "../../primitives/Section";
 import { Container } from "../../primitives/Container";
-import { Card } from "../../ui/card";
-import { Quote } from "lucide-react";
 
-const Default: BlockComponent<ProofStripContent> = ({ items }) => (
-  <Section className="bg-muted/40">
+const Default: BlockComponent<ProofStripContent> = ({
+  items,
+  eyebrow,
+  heading,
+}) => (
+  <Section>
     <Container>
-      <div className="grid gap-6 md:grid-cols-3">
-        {items.map((item, i) => (
-          <Card
-            key={i}
-            className="group relative flex flex-col overflow-hidden p-7 transition-shadow duration-300 hover:shadow-md"
-          >
-            <span
-              className="pointer-events-none absolute -right-2 -top-3 select-none font-heading text-7xl leading-none text-primary/10 transition-colors duration-300 group-hover:text-primary/20"
-              aria-hidden
-            >
-              &rdquo;
-            </span>
-            <Quote
-              className="mb-4 h-5 w-5 shrink-0 text-primary"
-              aria-hidden
-            />
-            <figure className="flex h-full flex-col">
-              <blockquote className="flex-1 text-pretty text-lg font-medium leading-relaxed text-card-foreground">
-                {item.quote}
-              </blockquote>
-              {item.attribution && (
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-                  <span className="h-px w-6 bg-primary" aria-hidden />
-                  <cite className="text-sm font-semibold not-italic text-muted-foreground">
-                    {item.attribution}
-                  </cite>
-                </figcaption>
-              )}
-            </figure>
-          </Card>
+      {eyebrow && (
+        <p className="text-sm text-muted-foreground">{eyebrow}</p>
+      )}
+      {heading && (
+        <h2 className="text-3xl text-foreground">{heading}</h2>
+      )}
+      <div className="space-y-8">
+        {(items ?? []).map((item, i) => (
+          <figure key={i}>
+            <blockquote className="text-lg text-foreground">
+              {item.quote}
+            </blockquote>
+            {item.attribution && (
+              <figcaption className="mt-2 text-base text-muted-foreground">
+                <cite>{item.attribution}</cite>
+              </figcaption>
+            )}
+          </figure>
         ))}
       </div>
     </Container>

@@ -7,17 +7,8 @@ const sample = {
     "Cellular (honeycomb) shades are a window covering whose pleats form air pockets that insulate the window.",
 };
 
-test.each(Object.keys(definition_answer))(
-  "definition_answer variant %s renders question as heading and answer text",
-  (v) => {
-    const C = (definition_answer as any)[v];
-    render(<C {...sample} props={{ variant: v }} />);
-    const heading = screen.getByRole("heading", { name: sample.question });
-    expect(heading).toBeInTheDocument();
-    expect(screen.getByText(sample.answer)).toBeInTheDocument();
-  }
-);
-
-test("definition_answer exposes default", () => {
-  expect(definition_answer.default).toBeTruthy();
+test("default renders question as heading and answer text", () => {
+  render(<definition_answer.default {...(sample as any)} />);
+  expect(screen.getByRole("heading", { name: sample.question })).toBeInTheDocument();
+  expect(screen.getByText(sample.answer)).toBeInTheDocument();
 });

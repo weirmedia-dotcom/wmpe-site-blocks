@@ -7,25 +7,16 @@ const steps = [
   { title: "Professional install", body: "We fit everything and tidy up." },
 ];
 
-test.each(Object.keys(step_list))(
-  "step_list variant %s renders every step title + body",
-  (v) => {
-    const C = (step_list as any)[v];
-    const { unmount } = render(<C steps={steps} props={{ variant: v }} />);
-    for (const step of steps) {
-      expect(screen.getByText(step.title)).toBeInTheDocument();
-      expect(screen.getByText(step.body)).toBeInTheDocument();
-    }
-    unmount();
-  },
-);
-
-test("step_list exposes default", () => {
-  expect(step_list.default).toBeTruthy();
+test("default renders every step title + body", () => {
+  render(<step_list.default steps={steps as any} />);
+  for (const step of steps) {
+    expect(screen.getByText(step.title)).toBeInTheDocument();
+    expect(screen.getByText(step.body)).toBeInTheDocument();
+  }
 });
 
-test("default variant uses ordered list semantics", () => {
-  render(<step_list.default steps={steps} />);
+test("default uses ordered list semantics", () => {
+  render(<step_list.default steps={steps as any} />);
   const list = screen.getByRole("list");
   expect(list.tagName).toBe("OL");
   expect(screen.getAllByRole("listitem")).toHaveLength(steps.length);

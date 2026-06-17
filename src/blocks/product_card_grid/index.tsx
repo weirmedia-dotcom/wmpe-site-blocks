@@ -1,4 +1,3 @@
 import Default from "./Default";
-import Horizontal from "./Horizontal";
-const product_card_grid = { default: Default, horizontal: Horizontal };
+const product_card_grid = { default: Default };
 export default product_card_grid;

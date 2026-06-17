@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import product_card_grid from "./index";
 
 const content = {
@@ -20,21 +20,20 @@ const content = {
   ],
 };
 
-test.each(Object.keys(product_card_grid))("variant %s renders all product names and features", (v) => {
-  const C = (product_card_grid as any)[v];
-  const { unmount } = render(<C {...content} props={{ variant: v }} />);
+test("default renders every product name, tagline, features and CTA", () => {
+  render(<product_card_grid.default {...(content as any)} />);
   for (const item of content.items) {
-    expect(document.body.textContent).toContain(item.name);
-    expect(document.body.textContent).toContain(item.tagline);
-    expect(document.body.textContent).toContain(item.cta_label);
+    expect(screen.getByText(item.name)).toBeInTheDocument();
+    expect(screen.getByText(item.tagline)).toBeInTheDocument();
+    expect(screen.getByText(item.cta_label)).toBeInTheDocument();
     for (const f of item.features) {
-      expect(document.body.textContent).toContain(f);
+      expect(screen.getByText(f)).toBeInTheDocument();
     }
   }
-  unmount();
 });
 
-test("product_card_grid.default and horizontal exist", () => {
-  expect(product_card_grid.default).toBeTruthy();
-  expect(product_card_grid.horizontal).toBeTruthy();
+test("default uses list semantics for the cards", () => {
+  render(<product_card_grid.default {...(content as any)} />);
+  const lists = screen.getAllByRole("list");
+  expect(lists.length).toBeGreaterThanOrEqual(1);
 });

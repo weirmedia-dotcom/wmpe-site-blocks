@@ -1,4 +1,3 @@
 import Default from "./Default";
-import Labeled from "./Labeled";
-const before_after = { default: Default, labeled: Labeled };
+const before_after = { default: Default };
 export default before_after;

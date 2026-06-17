@@ -1,12 +1,3 @@
-import type { VariantMap } from "../../types";
 import Default from "./Default";
-import Inline from "./Inline";
-import BadgeRow from "./BadgeRow";
-
-const risk_reversal: VariantMap = {
-  default: Default,
-  inline: Inline,
-  "badge-row": BadgeRow,
-};
-
+const risk_reversal = { default: Default };
 export default risk_reversal;

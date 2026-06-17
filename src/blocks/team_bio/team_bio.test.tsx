@@ -7,15 +7,14 @@ const sample = {
   bio: "Jane has dressed Niagara windows for over 15 years, blending an eye for fabric with a craftsperson's precision.",
 };
 
-test.each(Object.keys(team_bio))("team_bio variant %s renders name, role, bio and initials", (v) => {
-  const C = (team_bio as any)[v];
-  render(<C {...sample} props={{ variant: v }} />);
-  expect(screen.getByText(sample.name)).toBeTruthy();
-  expect(screen.getByText(sample.role)).toBeTruthy();
-  expect(screen.getByText(sample.bio)).toBeTruthy();
-  expect(screen.getByText("JF")).toBeTruthy();
+test("default renders name, role and bio", () => {
+  render(<team_bio.default {...(sample as any)} />);
+  expect(screen.getByText(sample.name)).toBeInTheDocument();
+  expect(screen.getByText(sample.role)).toBeInTheDocument();
+  expect(screen.getByText(sample.bio)).toBeInTheDocument();
 });
 
-test("team_bio exposes default", () => {
-  expect(team_bio.default).toBeTruthy();
+test("default exposes the member as an accessible image", () => {
+  render(<team_bio.default {...(sample as any)} />);
+  expect(screen.getByRole("img", { name: sample.name })).toBeInTheDocument();
 });

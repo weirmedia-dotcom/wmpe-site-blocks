@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import image_content_split from "./index";
 
 const content = {
@@ -9,16 +9,22 @@ const content = {
   cta_href: "/contact",
 };
 
-test.each(Object.keys(image_content_split))("variant %s renders heading and body", (v) => {
-  const C = (image_content_split as any)[v];
-  const { unmount } = render(<C {...content} props={{ variant: v }} />);
-  expect(document.body.textContent).toContain(content.heading);
-  expect(document.body.textContent).toContain(content.body);
-  expect(document.body.textContent).toContain(content.cta_label);
-  unmount();
+test("default renders heading, body and CTA", () => {
+  render(<image_content_split.default {...(content as any)} />);
+  expect(screen.getByText(content.heading)).toBeInTheDocument();
+  expect(screen.getByText(content.body)).toBeInTheDocument();
+  const cta = screen.getByRole("link", { name: content.cta_label });
+  expect(cta).toHaveAttribute("href", content.cta_href);
 });
 
-test("image_content_split.default and image-right both exist", () => {
-  expect(image_content_split.default).toBeTruthy();
-  expect(image_content_split["image-right"]).toBeTruthy();
+test("default exposes the image alt (placeholder when no src)", () => {
+  render(<image_content_split.default {...(content as any)} />);
+  expect(screen.getByRole("img", { name: content.image.alt })).toBeInTheDocument();
+});
+
+test("default omits the CTA when no cta_label", () => {
+  const { container } = render(
+    <image_content_split.default {...({ ...content, cta_label: undefined } as any)} />,
+  );
+  expect(container.querySelector("a")).toBeNull();
 });

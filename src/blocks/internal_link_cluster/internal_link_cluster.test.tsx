@@ -7,17 +7,10 @@ const links = [
   { label: "Custom Drapery", href: "/drapery" },
 ];
 
-test.each(Object.keys(internal_link_cluster))(
-  "internal_link_cluster variant %s renders every link with correct href",
-  (v) => {
-    const C = (internal_link_cluster as any)[v];
-    render(<C links={links} props={{ variant: v }} />);
-    for (const { label, href } of links) {
-      expect(screen.getByRole("link", { name: label })).toHaveAttribute("href", href);
-    }
+test("default renders a nav with every link", () => {
+  render(<internal_link_cluster.default links={links as any} />);
+  expect(screen.getByRole("navigation")).toBeInTheDocument();
+  for (const { label, href } of links) {
+    expect(screen.getByRole("link", { name: label })).toHaveAttribute("href", href);
   }
-);
-
-test("internal_link_cluster exposes default", () => {
-  expect(internal_link_cluster.default).toBeTruthy();
 });

@@ -1,4 +1,3 @@
 import Default from "./Default";
-import ImageRight from "./ImageRight";
-const image_content_split = { default: Default, "image-right": ImageRight };
+const image_content_split = { default: Default };
 export default image_content_split;

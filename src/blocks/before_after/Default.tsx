@@ -3,27 +3,23 @@ import { Section } from "../../primitives/Section";
 import { Container } from "../../primitives/Container";
 
 const Default: BlockComponent<BeforeAfterContent> = ({ before, after, caption }) => (
-  <Section className="bg-muted/40">
+  <Section>
     <Container>
       <div className="grid gap-4 md:grid-cols-2">
-        <div className="relative overflow-hidden rounded-xl">
+        <figure className="space-y-2">
           {before.src
-            ? <img src={before.src} alt={before.alt} className="aspect-[4/3] w-full object-cover" />
-            : <div className="aspect-[4/3] w-full bg-muted" aria-label={before.alt} />}
-          <span className="absolute bottom-3 left-3 rounded bg-background/90 px-3 py-1 text-xs font-bold uppercase tracking-widest text-foreground">
-            Before
-          </span>
-        </div>
-        <div className="relative overflow-hidden rounded-xl">
+            ? <img src={before.src} alt={before.alt} className="w-full h-auto" />
+            : <div className="w-full h-64 bg-muted" role="img" aria-label={before.alt} />}
+          <figcaption className="text-sm text-muted-foreground">Before</figcaption>
+        </figure>
+        <figure className="space-y-2">
           {after.src
-            ? <img src={after.src} alt={after.alt} className="aspect-[4/3] w-full object-cover" />
-            : <div className="aspect-[4/3] w-full bg-muted" aria-label={after.alt} />}
-          <span className="absolute bottom-3 left-3 rounded bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground">
-            After
-          </span>
-        </div>
+            ? <img src={after.src} alt={after.alt} className="w-full h-auto" />
+            : <div className="w-full h-64 bg-muted" role="img" aria-label={after.alt} />}
+          <figcaption className="text-sm text-muted-foreground">After</figcaption>
+        </figure>
       </div>
-      {caption && <p className="mt-5 text-center text-sm text-muted-foreground">{caption}</p>}
+      {caption && <p className="mt-4 text-sm text-muted-foreground">{caption}</p>}
     </Container>
   </Section>
 );
