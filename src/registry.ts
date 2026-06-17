@@ -19,8 +19,15 @@ import before_after from "./blocks/before_after";
 import stat_banner from "./blocks/stat_banner";
 import product_card_grid from "./blocks/product_card_grid";
 import colour_palette from "./blocks/colour_palette";
+import media_list_row from "./blocks/media_list_row";
+import category_tiles from "./blocks/category_tiles";
+import visit_us from "./blocks/visit_us";
+import promo_banner from "./blocks/promo_banner";
+import image_ticker from "./blocks/image_ticker";
+import mf_paints_band from "./blocks/mf_paints_band";
+import colour_visualizer from "./blocks/colour_visualizer";
 
-// Every WCE block type → its variant map. All 20 registered here.
+// Every WCE block type → its variant map. All 27 registered here.
 export const BLOCK_REGISTRY: Registry = {
   hero,
   intro_prose,
@@ -42,4 +49,11 @@ export const BLOCK_REGISTRY: Registry = {
   stat_banner,
   product_card_grid,
   colour_palette,
+  media_list_row,
+  category_tiles,
+  visit_us,
+  promo_banner,
+  image_ticker,
+  mf_paints_band,
+  colour_visualizer,
 };
