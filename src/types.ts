@@ -7,7 +7,8 @@ export type BlockType =
   | "contact_form" | "team_bio" | "legal_prose" | "image_gallery"
   | "image_content_split" | "before_after" | "stat_banner"
   | "product_card_grid" | "colour_palette"
-  | "media_list_row" | "category_tiles" | "visit_us" | "promo_banner";
+  | "media_list_row" | "category_tiles" | "visit_us" | "promo_banner"
+  | "image_ticker" | "mf_paints_band" | "colour_visualizer";
 
 export interface BlockProps { variant?: string; columns?: number; [k: string]: unknown; }
 
@@ -24,11 +25,11 @@ export interface ValuePropItem { title: string; body: string; icon?: string; }
 export interface ValuePropGridContent { items: ValuePropItem[]; }
 export interface StepItem { title: string; body: string; }
 export interface StepListContent { steps: StepItem[]; }
-export interface ComparisonTableContent { columns: string[]; rows: string[][]; }
+export interface ComparisonTableContent { columns: string[]; rows: string[][]; eyebrow?: string; heading?: string; intro?: string; }
 export interface FaqItem { q: string; a: string; }
 export interface FaqAccordionContent { items: FaqItem[]; }
 export interface ProofItem { quote: string; attribution?: string; }
-export interface ProofStripContent { items: ProofItem[]; }
+export interface ProofStripContent { items: ProofItem[]; eyebrow?: string; heading?: string; }
 export interface CtaBandContent { headline: string; cta_label: string; cta_href?: string; }
 export interface RiskReversalContent { markdown: string; }
 export interface LinkItem { label: string; href: string; }
@@ -74,9 +75,33 @@ export interface VisitUsContent {
   cta_label?: string;
   cta_href?: string;
   map_image?: { src?: string; alt?: string };
+  map_embed?: string;
 }
 
 export interface PromoBannerContent { text: string; icon?: string; cta_label?: string; cta_href?: string; }
+
+export interface ImageTickerItem { src: string; alt: string; colour: string; room?: string; hex: string; }
+export interface ImageTickerContent { items: ImageTickerItem[]; eyebrow?: string; }
+
+export interface MfPaintsBandContent {
+  paint_can?: string;
+  chips?: string[];
+  eyebrow?: string;
+  heading: string;
+  body: string;
+  points?: string[];
+  cta_label?: string;
+  cta_href?: string;
+}
+
+export interface ColourVisualizerSwatch { name: string; hex: string; family: string; }
+export interface ColourVisualizerContent {
+  image: string;
+  swatches: ColourVisualizerSwatch[];
+  eyebrow?: string;
+  heading?: string;
+  subhead?: string;
+}
 
 export interface PageMeta { title: string; description: string; }
 export interface Page {
