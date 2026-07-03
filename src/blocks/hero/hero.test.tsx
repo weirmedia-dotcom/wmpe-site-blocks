@@ -20,3 +20,12 @@ test("default renders headline only when optional fields absent", () => {
   expect(screen.getByRole("heading", { level: 1, name: "Just a headline" })).toBeInTheDocument();
   expect(screen.queryByRole("link")).not.toBeInTheDocument();
 });
+
+test("default renders the accent segment in the heading", () => {
+  render(<hero.default headline="Lindsay Ear Clinic:" headline_accent="Sound Solutions for a Clear Tomorrow" {...({} as any)} />);
+  const h1 = screen.getByRole("heading", { level: 1 });
+  expect(h1).toHaveTextContent("Lindsay Ear Clinic: Sound Solutions for a Clear Tomorrow");
+  const accent = screen.getByText("Sound Solutions for a Clear Tomorrow");
+  expect(accent.tagName).toBe("SPAN");
+  expect(accent).toHaveClass("text-primary");
+});

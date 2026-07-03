@@ -19,7 +19,7 @@ export interface Block<C = Record<string, unknown>> {
   content: C;
 }
 
-export interface HeroContent { headline: string; subhead?: string; cta_label?: string; cta_href?: string; }
+export interface HeroContent { headline: string; headline_accent?: string; subhead?: string; cta_label?: string; cta_href?: string; }
 export interface IntroProseContent { markdown: string; }
 export interface DefinitionAnswerContent { question: string; answer: string; }
 export interface ValuePropItem { title: string; body: string; icon?: string; }
