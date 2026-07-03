@@ -8,7 +8,8 @@ export type BlockType =
   | "image_content_split" | "before_after" | "stat_banner"
   | "product_card_grid" | "colour_palette"
   | "media_list_row" | "category_tiles" | "visit_us" | "promo_banner"
-  | "image_ticker" | "mf_paints_band" | "colour_visualizer";
+  | "image_ticker" | "mf_paints_band" | "colour_visualizer"
+  | "credential_strip" | "testimonial";
 
 export interface BlockProps { variant?: string; columns?: number; [k: string]: unknown; }
 
@@ -45,6 +46,11 @@ export interface ImageContentSplitContent { image: SplitImage; heading: string; 
 export interface BeforeAfterContent { before: SplitImage; after: SplitImage; caption?: string; }
 export interface StatItem { number: string; label: string; }
 export interface StatBannerContent { items: StatItem[]; heading?: string; }
+export interface CredentialItem { figure: string; label: string; note?: string; }
+export interface CredentialStripContent { items: CredentialItem[]; heading?: string; }
+export interface TestimonialAggregate { score: string; count?: string; }
+export interface TestimonialItem { quote: string; name?: string; town?: string; role?: string; }
+export interface TestimonialContent { items: TestimonialItem[]; heading?: string; aggregate?: TestimonialAggregate; }
 export interface ProductCardItem { name: string; image?: string; tagline: string; features: string[]; cta_label: string; cta_href?: string; }
 export interface ProductCardGridContent { items: ProductCardItem[]; }
 export interface SwatchItem { name: string; hex?: string; family?: string; }

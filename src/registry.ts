@@ -26,8 +26,9 @@ import promo_banner from "./blocks/promo_banner";
 import image_ticker from "./blocks/image_ticker";
 import mf_paints_band from "./blocks/mf_paints_band";
 import colour_visualizer from "./blocks/colour_visualizer";
+import credential_strip from "./blocks/credential_strip";
 
-// Every WCE block type → its variant map. All 27 registered here.
+// Every WCE block type → its variant map.
 export const BLOCK_REGISTRY: Registry = {
   hero,
   intro_prose,
@@ -56,4 +57,5 @@ export const BLOCK_REGISTRY: Registry = {
   image_ticker,
   mf_paints_band,
   colour_visualizer,
+  credential_strip,
 };
