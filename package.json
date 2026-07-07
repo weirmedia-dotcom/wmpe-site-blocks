@@ -10,7 +10,9 @@
     "./tailwind-preset": "./src/tailwind-preset.cjs"
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
   "scripts": {
     "test": "vitest run",
