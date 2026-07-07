@@ -15,7 +15,7 @@ const Default: BlockComponent<TestimonialContent> = ({ items, heading, aggregate
         </div>
       )}
       <ul className="grid gap-6 md:grid-cols-3">
-        {items.map((item, i) => (
+        {(items ?? []).map((item, i) => (
           <li key={i} className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
             <blockquote className="text-card-foreground">&ldquo;{item.quote}&rdquo;</blockquote>
             {(item.name || item.town) && (

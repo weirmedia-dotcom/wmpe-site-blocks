@@ -7,7 +7,7 @@ const Default: BlockComponent<ImageTickerContent> = ({ items, eyebrow }) => (
     <Container>
       {eyebrow && <p className="text-sm text-muted-foreground">{eyebrow}</p>}
       <ul className="mt-6 flex gap-6 overflow-x-auto">
-        {items.map((item, i) => (
+        {(items ?? []).map((item, i) => (
           <li key={i} className="flex w-72 shrink-0 flex-col gap-3">
             <img src={item.src} alt={item.alt} className="w-full h-auto bg-muted" />
             <div className="flex items-center gap-2">

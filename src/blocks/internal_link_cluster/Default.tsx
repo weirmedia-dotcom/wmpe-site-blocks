@@ -7,7 +7,7 @@ const Default: BlockComponent<InternalLinkClusterContent> = ({ links }) => (
     <Container>
       <nav aria-label="Related pages">
         <ul className="flex flex-col gap-2">
-          {links.map((link, i) => (
+          {(links ?? []).map((link, i) => (
             <li key={i}>
               <a href={link.href} className="text-base text-foreground">
                 {link.label}

@@ -8,7 +8,7 @@ const Default: BlockComponent<ColourPaletteContent> = ({ swatches, heading, body
       {heading && <h2 className="mb-4 text-2xl text-foreground">{heading}</h2>}
       {body && <p className="mb-8 text-base text-muted-foreground">{body}</p>}
       <ul className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
-        {swatches.map((swatch, i) => (
+        {(swatches ?? []).map((swatch, i) => (
           <li key={i} className="flex flex-col gap-2">
             {swatch.hex ? (
               <span

@@ -6,7 +6,7 @@ const Default: BlockComponent<ProductCardGridContent> = ({ items }) => (
   <Section>
     <Container>
       <ul className="grid grid-cols-1 gap-8 md:grid-cols-3">
-        {items.map((item, i) => (
+        {(items ?? []).map((item, i) => (
           <li key={i} className="flex flex-col gap-3">
             {item.image ? (
               <img src={item.image} alt={item.name} className="w-full h-auto" />

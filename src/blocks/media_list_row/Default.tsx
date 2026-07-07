@@ -13,7 +13,7 @@ const Default: BlockComponent<MediaListRowContent> = ({ heading, eyebrow, items 
       )}
 
       <ul className="mt-8 space-y-8">
-        {items.map((item, i) => (
+        {(items ?? []).map((item, i) => (
           <li key={i} className="flex flex-col gap-4 sm:flex-row">
             {item.image?.src && (
               <img

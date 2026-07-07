@@ -22,7 +22,7 @@ const Default: BlockComponent<ContactFormContent> = ({ intro, fields }) => (
     <Container>
       {intro ? <p className="text-base text-muted-foreground">{intro}</p> : null}
       <form className="flex flex-col gap-4">
-        {fields.map((field) => {
+        {(fields ?? []).map((field) => {
           const id = slugify(field);
           return (
             <div key={field} className="flex flex-col gap-1">
