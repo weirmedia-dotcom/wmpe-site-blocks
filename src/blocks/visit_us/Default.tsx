@@ -1,6 +1,7 @@
 import type { BlockComponent, VisitUsContent } from "../../types";
 import { Section } from "../../primitives/Section";
 import { Container } from "../../primitives/Container";
+import { safeEmbedUrl } from "../../lib/safeUrl";
 
 const Default: BlockComponent<VisitUsContent> = ({
   heading,
@@ -13,7 +14,9 @@ const Default: BlockComponent<VisitUsContent> = ({
   cta_href,
   map_image,
   map_embed,
-}) => (
+}) => {
+  const safeMapEmbed = safeEmbedUrl(map_embed);
+  return (
   <Section>
     <Container>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -68,9 +71,9 @@ const Default: BlockComponent<VisitUsContent> = ({
         </div>
 
         <div>
-          {map_embed ? (
+          {safeMapEmbed ? (
             <iframe
-              src={map_embed}
+              src={safeMapEmbed}
               title="Map"
               loading="lazy"
               className="w-full h-full min-h-64 border-0"
@@ -82,6 +85,7 @@ const Default: BlockComponent<VisitUsContent> = ({
       </div>
     </Container>
   </Section>
-);
+  );
+};
 
 export default Default;
