@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import type { BlockStyle } from "./blockStyle";
 
 export type BlockType =
   | "hero" | "intro_prose" | "definition_answer" | "value_prop_grid"
@@ -17,6 +18,7 @@ export interface Block<C = Record<string, unknown>> {
   blockType: BlockType;
   props?: BlockProps;
   content: C;
+  style?: BlockStyle;
 }
 
 export interface HeroContent { headline: string; headline_accent?: string; subhead?: string; cta_label?: string; cta_href?: string; }
