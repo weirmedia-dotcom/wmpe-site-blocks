@@ -24,3 +24,10 @@ describe("sizes", () => {
     expect(blockAttrs({ sizes: { headline: 100 } }, 1)["data-blk"]).toBe("b1");
   });
 });
+
+describe("colors", () => {
+  it("emits scoped color rules + counts styled", () => {
+    expect(collectBlockCss([{ style: { colors: { headline: "1 2% 3%" } } }])).toContain('[data-blk="b0"] :is(h1,h2,h3){color:hsl(1 2% 3%)}');
+    expect(hasAnyBlockStyle([{ style: { colors: { body: "0 0% 0%" } } }])).toBe(true);
+  });
+});
