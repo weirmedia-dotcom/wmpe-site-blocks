@@ -1,8 +1,16 @@
-export type BlockStyle = { vars?: Record<string, string>; css?: string };
+export type BlockStyle = {
+  vars?: Record<string, string>;
+  css?: string;
+  sizes?: { headline?: number; body?: number; eyebrow?: number };
+};
 type Attrs = { "data-blk"?: string; style?: Record<string, string> };
 
 function hasStyle(s: BlockStyle | undefined): s is BlockStyle {
-  return !!s && ((!!s.vars && Object.keys(s.vars).length > 0) || (!!s.css && s.css.trim().length > 0));
+  return !!s && (
+    (!!s.vars && Object.keys(s.vars).length > 0) ||
+    (!!s.css && s.css.trim().length > 0) ||
+    (!!s.sizes && Object.keys(s.sizes).length > 0)
+  );
 }
 export function blockAttrs(style: BlockStyle | undefined, index: number): Attrs {
   if (!hasStyle(style)) return {};
@@ -10,11 +18,30 @@ export function blockAttrs(style: BlockStyle | undefined, index: number): Attrs 
   if (style.vars && Object.keys(style.vars).length) out.style = style.vars;
   return out;
 }
+
+const SIZE_SELECTORS: Record<string, string> = {
+  headline: ":is(h1,h2,h3)",
+  body: ":is(p,li)",
+  eyebrow: '[class*="eyebrow"]',
+};
+function sizeCss(sizes: BlockStyle["sizes"], i: number): string {
+  if (!sizes) return "";
+  return (["headline", "body", "eyebrow"] as const)
+    .filter((k) => typeof sizes[k] === "number")
+    .map((k) => `[data-blk="b${i}"] ${SIZE_SELECTORS[k]}{font-size:${sizes[k]}px}`)
+    .join("\n");
+}
+
 export function collectBlockCss(blocks: { style?: BlockStyle }[]): string {
   return blocks.map((b, i) => {
-    if (!b.style?.css || !b.style.css.trim()) return "";
-    const safe = b.style.css.replace(/<\/style>/gi, "");
-    return `[data-blk="b${i}"]{ ${safe} }`;
+    const parts: string[] = [];
+    if (b.style?.css && b.style.css.trim()) {
+      const safe = b.style.css.replace(/<\/style>/gi, "");
+      parts.push(`[data-blk="b${i}"]{ ${safe} }`);
+    }
+    const sz = sizeCss(b.style?.sizes, i);
+    if (sz) parts.push(sz);
+    return parts.join("\n");
   })
     .filter(Boolean).join("\n");
 }

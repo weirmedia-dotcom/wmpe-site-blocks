@@ -16,3 +16,11 @@ describe("collectBlockCss", () => {
 describe("hasAnyBlockStyle", () => {
   it("detects style", () => expect(hasAnyBlockStyle([{}, { style: { css: "x" } }])).toBe(true));
 });
+
+describe("sizes", () => {
+  it("emits scoped font-size rules + counts as styled", () => {
+    expect(collectBlockCss([{ style: { sizes: { headline: 100 } } }])).toContain('[data-blk="b0"] :is(h1,h2,h3){font-size:100px}');
+    expect(hasAnyBlockStyle([{ style: { sizes: { body: 20 } } }])).toBe(true);
+    expect(blockAttrs({ sizes: { headline: 100 } }, 1)["data-blk"]).toBe("b1");
+  });
+});
