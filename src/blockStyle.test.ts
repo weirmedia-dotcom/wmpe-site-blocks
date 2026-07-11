@@ -9,6 +9,9 @@ describe("blockAttrs", () => {
 describe("collectBlockCss", () => {
   it("scopes to data-blk", () =>
     expect(collectBlockCss([{ style: { css: "a{b:c}" } }])).toContain('[data-blk="b0"]{ a{b:c} }'));
+  it("strips </style> from css to guard against tag breakout", () => {
+    expect(collectBlockCss([{ style: { css: "a{}</style><script>" } }])).not.toContain("</style>");
+  });
 });
 describe("hasAnyBlockStyle", () => {
   it("detects style", () => expect(hasAnyBlockStyle([{}, { style: { css: "x" } }])).toBe(true));

@@ -11,7 +11,11 @@ export function blockAttrs(style: BlockStyle | undefined, index: number): Attrs 
   return out;
 }
 export function collectBlockCss(blocks: { style?: BlockStyle }[]): string {
-  return blocks.map((b, i) => (b.style?.css && b.style.css.trim() ? `[data-blk="b${i}"]{ ${b.style.css} }` : ""))
+  return blocks.map((b, i) => {
+    if (!b.style?.css || !b.style.css.trim()) return "";
+    const safe = b.style.css.replace(/<\/style>/gi, "");
+    return `[data-blk="b${i}"]{ ${safe} }`;
+  })
     .filter(Boolean).join("\n");
 }
 export function hasAnyBlockStyle(blocks: { style?: BlockStyle }[]): boolean {
