@@ -1,8 +1,8 @@
 import type { Block, Registry } from "./types";
 import { BLOCK_REGISTRY } from "./registry";
 import { blockAttrs } from "./blockStyle";
-export function BlockRenderer({ block, overrides, registry = BLOCK_REGISTRY, index = 0 }:
-  { block: Block; overrides?: Registry; registry?: Registry; index?: number }) {
+export function BlockRenderer({ block, overrides, registry = BLOCK_REGISTRY, index = 0, forceAttrs }:
+  { block: Block; overrides?: Registry; registry?: Registry; index?: number; forceAttrs?: boolean }) {
   const variant = block.props?.variant ?? "default";
   // Override-first resolution: if a client overrode this blockType, prefer THEIR
   // component (their variant, else their default) over the package — even when the
@@ -19,6 +19,6 @@ export function BlockRenderer({ block, overrides, registry = BLOCK_REGISTRY, ind
     return null;
   }
   const el = <Comp {...(block.content as any)} props={block.props} />;
-  const attrs = blockAttrs(block.style, index, false, block.blockType);
+  const attrs = blockAttrs(block.style, index, forceAttrs ?? false, block.blockType);
   return attrs["data-blk"] ? <div {...(attrs as any)}>{el}</div> : el;
 }
