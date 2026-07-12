@@ -19,6 +19,6 @@ export function BlockRenderer({ block, overrides, registry = BLOCK_REGISTRY, ind
     return null;
   }
   const el = <Comp {...(block.content as any)} props={block.props} />;
-  const attrs = blockAttrs(block.style, index);
+  const attrs = blockAttrs(block.style, index, false, block.blockType);
   return attrs["data-blk"] ? <div {...(attrs as any)}>{el}</div> : el;
 }
