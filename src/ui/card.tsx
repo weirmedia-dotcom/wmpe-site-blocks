@@ -1,11 +1,17 @@
 import * as React from "react";
 import { cn } from "../lib/cn";
 
+// F8: `--card-radius` is a studio-authored element-scoped var (see
+// button.tsx above for the full fallback-chain rationale) — fallback
+// var(--radius) reproduces today's rounded-lg exactly when unset.
 const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}
+      className={cn(
+        "[border-radius:var(--card-radius,var(--radius))] border bg-card text-card-foreground shadow-sm",
+        className
+      )}
       {...props}
     />
   )
