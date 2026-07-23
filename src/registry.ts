@@ -28,6 +28,7 @@ import mf_paints_band from "./blocks/mf_paints_band";
 import colour_visualizer from "./blocks/colour_visualizer";
 import credential_strip from "./blocks/credential_strip";
 import testimonial from "./blocks/testimonial";
+import app_teaser from "./blocks/app_teaser";
 
 // Every WCE block type → its variant map.
 export const BLOCK_REGISTRY: Registry = {
@@ -60,4 +61,5 @@ export const BLOCK_REGISTRY: Registry = {
   colour_visualizer,
   credential_strip,
   testimonial,
+  app_teaser,
 };

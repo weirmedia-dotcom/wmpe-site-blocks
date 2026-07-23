@@ -10,7 +10,7 @@ export type BlockType =
   | "product_card_grid" | "colour_palette"
   | "media_list_row" | "category_tiles" | "visit_us" | "promo_banner"
   | "image_ticker" | "mf_paints_band" | "colour_visualizer"
-  | "credential_strip" | "testimonial";
+  | "credential_strip" | "testimonial" | "app_teaser";
 
 export interface BlockProps { variant?: string; columns?: number; [k: string]: unknown; }
 
@@ -109,6 +109,18 @@ export interface ColourVisualizerContent {
   eyebrow?: string;
   heading?: string;
   subhead?: string;
+}
+
+export interface AppTeaserContent {
+  /** Screenshot / preview of the tool being promoted. */
+  image: string;
+  image_alt?: string;
+  eyebrow?: string;
+  heading?: string;
+  subhead?: string;
+  cta_label?: string;
+  /** Used when the teaser links out; ignored when a client override supplies onActivate. */
+  cta_href?: string;
 }
 
 export interface PageMeta { title: string; description: string; }
