@@ -8,7 +8,7 @@ const Default: BlockComponent<TeamBioContent> = ({ name, role, bio }) => (
       <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
         <div className="w-full h-48 sm:w-40 bg-muted" role="img" aria-label={name} />
         <div className="space-y-2">
-          <h3 className="text-xl text-foreground">{name}</h3>
+          <h3 className="text-xl text-heading">{name}</h3>
           {role && <p className="text-base text-muted-foreground">{role}</p>}
           <p className="text-base text-muted-foreground">{bio}</p>
         </div>

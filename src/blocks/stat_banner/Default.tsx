@@ -5,7 +5,7 @@ import { Container } from "../../primitives/Container";
 const Default: BlockComponent<StatBannerContent> = ({ items, heading }) => (
   <Section>
     <Container>
-      {heading && <h2 className="mb-8 text-2xl text-foreground">{heading}</h2>}
+      {heading && <h2 className="mb-8 text-2xl text-heading">{heading}</h2>}
       <ul className="grid grid-cols-2 gap-8 md:grid-cols-4">
         {(items ?? []).map((item, i) => (
           <li key={i} className="flex flex-col gap-2">

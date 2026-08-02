@@ -25,7 +25,7 @@ const Default: BlockComponent<MfPaintsBandContent> = ({
 
         <div className="flex flex-col gap-4">
           {eyebrow && <span className="text-sm text-muted-foreground">{eyebrow}</span>}
-          <h2 className="text-3xl text-foreground">{heading}</h2>
+          <h2 className="text-3xl text-heading">{heading}</h2>
           <p className="text-base text-muted-foreground">{body}</p>
 
           {points && points.length > 0 && (

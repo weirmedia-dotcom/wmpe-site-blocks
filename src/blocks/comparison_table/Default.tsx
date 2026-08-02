@@ -15,7 +15,7 @@ const Default: BlockComponent<ComparisonTableContent> = ({
         <p className="text-sm text-muted-foreground">{eyebrow}</p>
       )}
       {heading && (
-        <h2 className="text-3xl text-foreground">{heading}</h2>
+        <h2 className="text-3xl text-heading">{heading}</h2>
       )}
       {intro && (
         <p className="mt-2 text-base text-muted-foreground">{intro}</p>

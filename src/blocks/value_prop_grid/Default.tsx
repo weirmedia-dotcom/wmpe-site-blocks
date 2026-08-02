@@ -8,7 +8,7 @@ const Default: BlockComponent<ValuePropGridContent> = ({ items }) => (
       <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {(items ?? []).map((item, i) => (
           <li key={i}>
-            <h3 className="text-lg text-foreground">{item.title}</h3>
+            <h3 className="text-lg text-heading">{item.title}</h3>
             <p className="mt-2 text-base text-muted-foreground">{item.body}</p>
           </li>
         ))}

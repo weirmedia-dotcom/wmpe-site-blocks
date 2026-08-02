@@ -12,6 +12,12 @@ module.exports = {
         accent: "hsl(var(--accent))", "accent-foreground": "hsl(var(--accent-foreground))",
         destructive: "hsl(var(--destructive))", "destructive-foreground": "hsl(var(--destructive-foreground))",
         border: "hsl(var(--border))", input: "hsl(var(--input))", ring: "hsl(var(--ring))",
+        // Heading colour, with --foreground as the FALLBACK BUILT INTO THE VAR.
+        // That fallback is the compatibility guarantee: a client that never
+        // sets --heading renders byte-identically to before this existed, so
+        // rolling this out costs nothing until someone opts in. Headings use
+        // `text-heading`; body copy stays `text-foreground`.
+        heading: "hsl(var(--heading, var(--foreground)))",
       },
       borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)", sm: "calc(var(--radius) - 4px)" },
       fontFamily: { heading: ["var(--font-heading)", "serif"], body: ["var(--font-body)", "sans-serif"] },

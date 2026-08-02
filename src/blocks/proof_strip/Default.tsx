@@ -13,7 +13,7 @@ const Default: BlockComponent<ProofStripContent> = ({
         <p className="text-sm text-muted-foreground">{eyebrow}</p>
       )}
       {heading && (
-        <h2 className="text-3xl text-foreground">{heading}</h2>
+        <h2 className="text-3xl text-heading">{heading}</h2>
       )}
       <div className="space-y-8">
         {(items ?? []).map((item, i) => (

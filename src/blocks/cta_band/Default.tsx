@@ -6,7 +6,7 @@ const Default: BlockComponent<CtaBandContent> = ({ headline, cta_label, cta_href
   <Section>
     <Container>
       <div className="flex flex-col gap-4">
-        <h2 className="text-2xl text-foreground">{headline}</h2>
+        <h2 className="text-2xl text-heading">{headline}</h2>
         <div>
           <a href={cta_href ?? "#"} className="text-base text-foreground">
             {cta_label}

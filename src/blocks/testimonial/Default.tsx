@@ -5,7 +5,7 @@ import { Container } from "../../primitives/Container";
 const Default: BlockComponent<TestimonialContent> = ({ items, heading, aggregate }) => (
   <Section>
     <Container>
-      {heading && <h2 className="mb-8 text-2xl text-foreground">{heading}</h2>}
+      {heading && <h2 className="mb-8 text-2xl text-heading">{heading}</h2>}
       {aggregate && (
         <div className="mb-8 flex items-baseline gap-3">
           <span className="text-5xl text-foreground">{aggregate.score}</span>

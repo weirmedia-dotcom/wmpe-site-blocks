@@ -13,7 +13,7 @@ const Default: BlockComponent<ProductCardGridContent> = ({ items }) => (
             ) : (
               <div className="w-full h-auto bg-muted" aria-hidden />
             )}
-            <h3 className="text-lg text-foreground">{item.name}</h3>
+            <h3 className="text-lg text-heading">{item.name}</h3>
             <p className="text-base text-muted-foreground">{item.tagline}</p>
             {item.features && item.features.length > 0 && (
               <ul className="flex flex-col gap-1">

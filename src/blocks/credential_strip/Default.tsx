@@ -6,7 +6,7 @@ const Default: BlockComponent<CredentialStripContent> = ({ items, heading }) => 
   <Section>
     <Container>
       {heading && (
-        <h2 className="mb-8 text-center text-2xl text-foreground">{heading}</h2>
+        <h2 className="mb-8 text-center text-2xl text-heading">{heading}</h2>
       )}
       <ul className="grid grid-cols-2 gap-8 md:grid-cols-4">
         {(items ?? []).map((item, i) => (

@@ -5,7 +5,7 @@ import { Container } from "../../primitives/Container";
 const Default: BlockComponent<ColourPaletteContent> = ({ swatches, heading, body }) => (
   <Section>
     <Container>
-      {heading && <h2 className="mb-4 text-2xl text-foreground">{heading}</h2>}
+      {heading && <h2 className="mb-4 text-2xl text-heading">{heading}</h2>}
       {body && <p className="mb-8 text-base text-muted-foreground">{body}</p>}
       <ul className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
         {(swatches ?? []).map((swatch, i) => (

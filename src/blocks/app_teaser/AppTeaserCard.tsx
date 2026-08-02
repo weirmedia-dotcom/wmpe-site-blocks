@@ -52,7 +52,7 @@ export function AppTeaserCard({
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{eyebrow}</span>
         )}
         {heading && (
-          <h2 className="text-balance font-heading text-2xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-3xl md:text-[2.25rem]">
+          <h2 className="text-balance font-heading text-2xl font-semibold leading-[1.1] tracking-tight text-heading sm:text-3xl md:text-[2.25rem]">
             {heading}
           </h2>
         )}

@@ -12,7 +12,7 @@ const Default: BlockComponent<ImageContentSplitContent> = ({ image, heading, bod
             : <div className="w-full h-64 bg-muted" role="img" aria-label={image.alt} />}
         </div>
         <div className="space-y-4">
-          <h2 className="text-3xl text-foreground">{heading}</h2>
+          <h2 className="text-3xl text-heading">{heading}</h2>
           <p className="text-base text-muted-foreground">{body}</p>
           {cta_label && <a href={cta_href ?? "#"} className="text-base text-foreground">{cta_label}</a>}
         </div>

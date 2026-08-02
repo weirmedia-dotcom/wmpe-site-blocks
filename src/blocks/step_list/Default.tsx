@@ -8,7 +8,7 @@ const Default: BlockComponent<StepListContent> = ({ steps }) => (
       <ol className="space-y-8">
         {(steps ?? []).map((step, i) => (
           <li key={i}>
-            <h3 className="text-lg text-foreground">{step.title}</h3>
+            <h3 className="text-lg text-heading">{step.title}</h3>
             <p className="mt-2 text-base text-muted-foreground">{step.body}</p>
           </li>
         ))}

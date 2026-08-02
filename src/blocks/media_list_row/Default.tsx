@@ -8,7 +8,7 @@ const Default: BlockComponent<MediaListRowContent> = ({ heading, eyebrow, items 
       {(eyebrow || heading) && (
         <div className="space-y-2">
           {eyebrow && <p className="text-sm text-muted-foreground">{eyebrow}</p>}
-          {heading && <h2 className="text-2xl text-foreground">{heading}</h2>}
+          {heading && <h2 className="text-2xl text-heading">{heading}</h2>}
         </div>
       )}
 
@@ -23,7 +23,7 @@ const Default: BlockComponent<MediaListRowContent> = ({ heading, eyebrow, items 
               />
             )}
             <div className="flex-1 space-y-2">
-              <h3 className="text-lg text-foreground">{item.name}</h3>
+              <h3 className="text-lg text-heading">{item.name}</h3>
               {item.tagline && <p className="text-base text-muted-foreground">{item.tagline}</p>}
               {item.meta && item.meta.length > 0 && (
                 <ul className="flex flex-wrap gap-x-4 gap-y-1">

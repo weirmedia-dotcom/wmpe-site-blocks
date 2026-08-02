@@ -8,7 +8,7 @@ const Default: BlockComponent<CategoryTilesContent> = ({ heading, eyebrow, items
       {(eyebrow || heading) && (
         <div className="space-y-2">
           {eyebrow && <p className="text-sm text-muted-foreground">{eyebrow}</p>}
-          {heading && <h2 className="text-2xl text-foreground">{heading}</h2>}
+          {heading && <h2 className="text-2xl text-heading">{heading}</h2>}
         </div>
       )}
 
@@ -23,7 +23,7 @@ const Default: BlockComponent<CategoryTilesContent> = ({ heading, eyebrow, items
                   className="w-full h-auto"
                 />
               )}
-              <h3 className="text-lg text-foreground">{item.title}</h3>
+              <h3 className="text-lg text-heading">{item.title}</h3>
               {item.blurb && <p className="text-base text-muted-foreground">{item.blurb}</p>}
             </>
           );

@@ -14,7 +14,7 @@ const Default: BlockComponent<ColourVisualizerContent> = ({
       {(eyebrow || heading || subhead) && (
         <div className="space-y-2">
           {eyebrow && <p className="text-sm text-muted-foreground">{eyebrow}</p>}
-          {heading && <h2 className="text-3xl text-foreground">{heading}</h2>}
+          {heading && <h2 className="text-3xl text-heading">{heading}</h2>}
           {subhead && <p className="text-lg text-muted-foreground">{subhead}</p>}
         </div>
       )}

@@ -24,7 +24,7 @@ const Default: BlockComponent<VisitUsContent> = ({
           {(eyebrow || heading) && (
             <div className="space-y-2">
               {eyebrow && <p className="text-sm text-muted-foreground">{eyebrow}</p>}
-              {heading && <h2 className="text-2xl text-foreground">{heading}</h2>}
+              {heading && <h2 className="text-2xl text-heading">{heading}</h2>}
             </div>
           )}
 

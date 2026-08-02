@@ -11,8 +11,8 @@ import { cn } from "./cn";
  * (no rehype-raw) so untrusted markdown stays safe.
  */
 const components: Components = {
-  h2: ({ children }) => <h2 className="mt-10 mb-4 text-2xl text-foreground">{children}</h2>,
-  h3: ({ children }) => <h3 className="mt-8 mb-3 text-xl text-foreground">{children}</h3>,
+  h2: ({ children }) => <h2 className="mt-10 mb-4 text-2xl text-heading">{children}</h2>,
+  h3: ({ children }) => <h3 className="mt-8 mb-3 text-xl text-heading">{children}</h3>,
   p: ({ children }) => <p className="my-4 text-base text-muted-foreground">{children}</p>,
   ul: ({ children }) => <ul className="my-4 list-disc space-y-2 pl-6 text-muted-foreground">{children}</ul>,
   ol: ({ children }) => <ol className="my-4 list-decimal space-y-2 pl-6 text-muted-foreground">{children}</ol>,
