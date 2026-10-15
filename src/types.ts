@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 import type { BlockStyle } from "./blockStyle";
 
 export type BlockType =
@@ -10,7 +10,7 @@ export type BlockType =
   | "product_card_grid" | "colour_palette"
   | "media_list_row" | "category_tiles" | "visit_us" | "promo_banner"
   | "image_ticker" | "mf_paints_band" | "colour_visualizer"
-  | "credential_strip" | "testimonial" | "app_teaser";
+  | "credential_strip" | "testimonial" | "app_teaser" | "landing_page";
 
 export interface BlockProps { variant?: string; columns?: number; [k: string]: unknown; }
 
@@ -121,6 +121,30 @@ export interface AppTeaserContent {
   cta_label?: string;
   /** Used when the teaser links out; ignored when a client override supplies onActivate. */
   cta_href?: string;
+}
+
+/** A link or button target on a landing page: the words and where they go (a tel: link, an in-page anchor, a page). */
+export interface LandingCta { label: string; href: string; }
+export interface LandingItem { title: string; body: string; }
+/** One landing page section, in the order the page shows it. Proof is a stored review or rating: text and who said it. */
+export type LandingSection =
+  | { kind: "benefits"; heading: string; items: LandingItem[] }
+  | { kind: "process"; heading: string; items: LandingItem[] }
+  | { kind: "proof"; heading: string; items: Array<{ text: string; author?: string | null }> }
+  | { kind: "faq"; heading: string; items: Array<{ question: string; answer: string }> }
+  | { kind: "service_area"; heading: string; body: string };
+/**
+ * A landing page's parts, any subset, rendered in this order: hero, sections, form, links, closing. One page may hold several
+ * instances (the parts before and after its form). SEO lives in the page meta, not here.
+ */
+export interface LandingPageContent {
+  hero?: { h1: string; subheading: string; primary_cta: LandingCta; trust_line?: string | null };
+  sections?: LandingSection[];
+  form?: { heading: string; intro: string };
+  /** Filled only by a client renderer that composes this block with its own wired lead form. Stored content never carries it. */
+  formSlot?: ReactNode;
+  links?: Array<{ anchor: string; href: string }>;
+  closing?: { heading: string; body: string; button: string; href: string };
 }
 
 export interface PageMeta { title: string; description: string; }
