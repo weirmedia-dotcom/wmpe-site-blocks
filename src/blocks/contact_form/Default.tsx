@@ -17,9 +17,10 @@ function isMultiline(field: string): boolean {
   return f.includes("message") || f.includes("notes") || f.includes("comment");
 }
 
-const Default: BlockComponent<ContactFormContent> = ({ intro, fields }) => (
+const Default: BlockComponent<ContactFormContent> = ({ heading, intro, fields, submit_label, props }) => (
   <Section>
     <Container>
+      {heading ? <h2 className="mb-8 text-2xl text-heading">{heading}</h2> : null}
       {intro ? <p className="text-base text-muted-foreground">{intro}</p> : null}
       <form className="flex flex-col gap-4">
         {(fields ?? []).map((field) => {
@@ -37,8 +38,11 @@ const Default: BlockComponent<ContactFormContent> = ({ intro, fields }) => (
             </div>
           );
         })}
+        {(props?.hiddenFields ?? []).filter((n) => typeof n === "string" && n).map((name) => (
+          <input key={name} type="hidden" name={name} defaultValue="" />
+        ))}
         <button type="submit" className="text-base text-foreground">
-          Send message
+          {submit_label || "Send message"}
         </button>
       </form>
     </Container>
