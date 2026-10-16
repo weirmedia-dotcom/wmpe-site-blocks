@@ -2,9 +2,10 @@ import type { BlockComponent, StepListContent } from "../../types";
 import { Section } from "../../primitives/Section";
 import { Container } from "../../primitives/Container";
 
-const Default: BlockComponent<StepListContent> = ({ steps }) => (
+const Default: BlockComponent<StepListContent> = ({ steps, heading }) => (
   <Section>
     <Container>
+      {heading && <h2 className="mb-8 text-2xl text-heading">{heading}</h2>}
       <ol className="space-y-8">
         {(steps ?? []).map((step, i) => (
           <li key={i}>

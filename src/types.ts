@@ -12,7 +12,7 @@ export type BlockType =
   | "image_ticker" | "mf_paints_band" | "colour_visualizer"
   | "credential_strip" | "testimonial" | "app_teaser" | "landing_page";
 
-export interface BlockProps { variant?: string; columns?: number; [k: string]: unknown; }
+export interface BlockProps { variant?: string; columns?: number; /** contact_form: names of extra `<input type="hidden">` fields (filled by the site's own script). */ hiddenFields?: string[]; [k: string]: unknown; }
 
 export interface Block<C = Record<string, unknown>> {
   blockType: BlockType;
@@ -22,22 +22,22 @@ export interface Block<C = Record<string, unknown>> {
 }
 
 export interface HeroContent { headline: string; headline_accent?: string; subhead?: string; cta_label?: string; cta_href?: string; }
-export interface IntroProseContent { markdown: string; }
+export interface IntroProseContent { markdown: string; heading?: string; }
 export interface DefinitionAnswerContent { question: string; answer: string; }
 export interface ValuePropItem { title: string; body: string; icon?: string; }
-export interface ValuePropGridContent { items: ValuePropItem[]; }
+export interface ValuePropGridContent { items: ValuePropItem[]; heading?: string; }
 export interface StepItem { title: string; body: string; }
-export interface StepListContent { steps: StepItem[]; }
+export interface StepListContent { steps: StepItem[]; heading?: string; }
 export interface ComparisonTableContent { columns: string[]; rows: string[][]; eyebrow?: string; heading?: string; intro?: string; }
 export interface FaqItem { q: string; a: string; }
-export interface FaqAccordionContent { items: FaqItem[]; }
+export interface FaqAccordionContent { items: FaqItem[]; heading?: string; }
 export interface ProofItem { quote: string; attribution?: string; }
 export interface ProofStripContent { items: ProofItem[]; eyebrow?: string; heading?: string; }
-export interface CtaBandContent { headline: string; cta_label: string; cta_href?: string; }
+export interface CtaBandContent { headline: string; cta_label: string; cta_href?: string; body?: string; }
 export interface RiskReversalContent { markdown: string; }
 export interface LinkItem { label: string; href: string; }
 export interface InternalLinkClusterContent { links: LinkItem[]; }
-export interface ContactFormContent { intro?: string; fields: string[]; }
+export interface ContactFormContent { intro?: string; fields: string[]; heading?: string; submit_label?: string; }
 export interface TeamBioContent { name: string; role?: string; bio: string; }
 export interface LegalProseContent { markdown: string; }
 export interface GalleryImage { src?: string; alt: string; }
