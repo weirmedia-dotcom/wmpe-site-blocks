@@ -2,7 +2,7 @@ import type { BlockComponent, HeroContent } from "../../types";
 import { Section } from "../../primitives/Section";
 import { Container } from "../../primitives/Container";
 
-const Default: BlockComponent<HeroContent> = ({ headline, headline_accent, subhead, cta_label, cta_href }) => (
+const Default: BlockComponent<HeroContent> = ({ headline, headline_accent, subhead, cta_label, cta_href, cta_note }) => (
   <Section>
     <Container className="space-y-5">
       <h1 className="text-3xl text-heading">
@@ -15,6 +15,7 @@ const Default: BlockComponent<HeroContent> = ({ headline, headline_accent, subhe
           <a href={cta_href ?? "#"}>{cta_label}</a>
         </p>
       )}
+      {cta_note && <p className="text-sm text-muted-foreground">{cta_note}</p>}
     </Container>
   </Section>
 );
