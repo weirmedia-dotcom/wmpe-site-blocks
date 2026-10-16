@@ -21,7 +21,7 @@ export interface Block<C = Record<string, unknown>> {
   style?: BlockStyle;
 }
 
-export interface HeroContent { headline: string; headline_accent?: string; subhead?: string; cta_label?: string; cta_href?: string; }
+export interface HeroContent { headline: string; headline_accent?: string; subhead?: string; cta_label?: string; cta_href?: string; cta_note?: string; }
 export interface IntroProseContent { markdown: string; heading?: string; }
 export interface DefinitionAnswerContent { question: string; answer: string; }
 export interface ValuePropItem { title: string; body: string; icon?: string; }

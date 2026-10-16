@@ -29,3 +29,19 @@ test("default renders the accent segment in the heading", () => {
   expect(accent.tagName).toBe("SPAN");
   expect(accent).toHaveClass("text-primary");
 });
+
+test("cta_note absent leaves the markup unchanged", () => {
+  const { container } = render(<hero.default {...(content as any)} />);
+  expect(container.innerHTML).toMatchInlineSnapshot(`"<section class="w-full py-16 md:py-24"><div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 space-y-5"><h1 class="text-3xl text-heading">Falls Decor</h1><p class="text-lg text-muted-foreground">Window fashions for Niagara homes</p><p><a href="/contact">Book a consultation</a></p></div></section>"`);
+});
+
+test("cta_note present renders a small muted paragraph directly under the cta", () => {
+  render(<hero.default {...(content as any)} cta_note="No obligation." />);
+  const note = screen.getByText("No obligation.");
+  expect(note.tagName).toBe("P");
+  expect(note.className).toContain("text-sm");
+  expect(note.className).toContain("text-muted-foreground");
+  expect(note.children).toHaveLength(0);
+  const cta = screen.getByRole("link", { name: "Book a consultation" }).closest("p")!;
+  expect(cta.nextElementSibling).toBe(note);
+});
